@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Detailed cafe view{% endblock %}
+
+{% block content %}
+<div>
+    <ul>
+        <li>Name: {{cafe.name}}</li>
+        <li>City: {{cafe.city}}</li>
+        <li>Website: <a href={{cafe.website}}>{{cafe.website}}</a></li>
+        <li>Map Link:  <a href={{cafe.map_location}}>Mapy</a></li>
+        <li>Description: {{cafe.description}}</li>
+        <li>Rating: {{cafe.overall_rating}}</li>
+        <li>Coffee: {{cafe.coffee}}</li>
+        <li>Tea: {{cafe.tea}}</li>
+        <li>Wifi: {{cafe.wifi}}</li>
+        <li>Cake: {{cafe.cake}}</li>
+        <li>Work: {{cafe.work}}</li>
+        <li>Breakfast: {{cafe.breakfast}}</li>
+        <li>Review: {{cafe.review}}</li>
+    </ul>
+</div>
+<a href={{ url_for('home') }} class="button btn btn-outline-secondary">Home</a>
+<a href={{ url_for('edit', id=cafe.id) }} class="button btn-outline-primary">Edit</a>
+<a href={{ url_for('delete', id=cafe.id) }} class="button delete-button">Delete</a>
+{% endblock %}

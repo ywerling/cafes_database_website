@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Find the best cafes in town!{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1 class="heading">Cafes overview</h1>
+  <p class="description">The following cafes are in our database.</p>
+  <ul>
+  {% for cafe in cafes %}
+    <li>
+      {{cafe.name}}, {{cafe.city}}, {{cafe.overall_rating}}
+      <a href={{ url_for('view', id=cafe.id) }} class="button">View</a>
+    </li>
+    {% endfor %}
+  </ul>
+
+      <a href={{ url_for('add') }} class="button btn-primary">Add Cafe</a>
+      <a href={{ url_for('search') }} class="button btn-secondary">Search Cafe</a>
+</div>
+{% endblock %}
